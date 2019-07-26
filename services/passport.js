@@ -38,7 +38,7 @@ const jwtOptions = {
     jwtFromRequest: ExtractJwt.fromHeader('authorization'),
     // tells jwt strategy what secret we used to encode the token 
     // so that it ccan decode it
-    secretOrKey: config.secrect
+    secretOrKey: config.secret
 }
 
 // we are going to get the payload arguement from an incoming request

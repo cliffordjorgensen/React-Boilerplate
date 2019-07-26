@@ -25,6 +25,7 @@ module.exports = {
             const user = new db.User({ email, password })
             await user.save();
             res.json({ token: tokenForUser(user) });
+
         } catch (e) {
             res.status(404).json({ e });
         }
