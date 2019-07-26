@@ -26,6 +26,19 @@ const localLogin = new LocalStrategy(localOptions, async(email, password, done) 
     } catch (e) {
         done(e, false)
     }
-})
+});
+
+// Setup options for Jwt strategy (web Tokens)
+// We need to tell our strategy where to look for the token
+
+const jwtOptions = {
+    // tells jwt strategy that whenever a req cpomes in
+    // and we want to pass[port to handl it
+    // It needs to look in the header, fot the property called 'authorization'
+    jwtFromRequest: ExtractJwt.fromHeader('authorization'),
+    // tells jwt strategy what secret we used to encode the token 
+    // so that it ccan decode it
+    secretOrKey: config.secrect
+}
 
 passport.use(localLogin)
