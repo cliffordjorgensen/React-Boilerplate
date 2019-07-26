@@ -1,9 +1,9 @@
 const db = require('../models');
 const jwt = require('jwt-simple');
 const config = require('../config');
+
 const tokenForUser = function(user) {
     const timeStamp = new Date().getTime();
-
     // Sub === subject
     // iat === issued at time
 
@@ -31,6 +31,6 @@ module.exports = {
         }
     },
     signIn: (req, res) => {
-        res.send('im hit')
+        res.send({ token: tokenForUser(req.user) })
     }
 };
