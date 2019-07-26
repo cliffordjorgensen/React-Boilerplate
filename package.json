@@ -17,7 +17,9 @@
         "passport-local": "^1.0.0",
         "validator": "^11.1.0"
     },
-    "devDependencies": {},
+    "devDependencies": {
+        "nodemon": "^1.19.1"
+    },
     "scripts": {
         "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
         "start:prod": "node index.js",
