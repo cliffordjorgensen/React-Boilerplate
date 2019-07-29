@@ -17,4 +17,4 @@ class Stuff extends Component {
 function mapStateToProps({counter}) {
   return {counter: counter.counter};
 }
-export default connect(mapStateToProps,null)(Stuff)
+export default connect(mapStateToProps, null)(Stuff)

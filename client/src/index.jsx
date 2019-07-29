@@ -8,6 +8,7 @@ import reduxThunk from 'redux-thunk'
 import App from './containers/App';
 import Counter from './containers/Counter'
 import Stuff from './containers/Stuff'
+import Signup from './containers/Signup'
 // import components
 import Welcome from './components/Welcome/index'
 import reducers from './reducers';
@@ -16,7 +17,9 @@ import reducers from './reducers';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   reducers,
-  {},
+  {
+    auth: { authenticated : localStorage.getItem('token')}
+  },
   composeEnhancers(applyMiddleware(reduxThunk))
 );
 
@@ -28,6 +31,7 @@ ReactDOM.render(
         <Route exact path='/' component = {Welcome}/>
         <Route exact path='/counter' component = {Counter}/>
         <Route exact path='/stuff' component = {Stuff}/>
+        <Route exact path='/signup' component = {Signup}/>
       </App>
     </Router>
   </Provider>
