@@ -14,6 +14,7 @@ app.use(cors());
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
+
 // Routes Setup
 const routes = require('./routes');
 app.use(routes);
