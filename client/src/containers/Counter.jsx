@@ -1,28 +1,23 @@
 import React, { Component } from 'react';
-import Button from '../components/Button/counterButton';
+import { connect } from 'react-redux'
+import { incrementCounter, decrementCounter } from '../actions'
 
 class Counter extends Component{
-  state ={
-    counter: 0
-  }
-
-  handleIncrement = () => {
-    this.setState({counter: this.state.counter + 1})
-  }
-  handleDeccrement = () => {
-    this.setState({counter: this.state.counter - 1})
-  }
-
   render() {
+    console.log(this.props)
     return(
       <div>
        <h1>Counter</h1>
-       <p><h3>Counter :{this.state.counter}</h3></p>
-       <Button handleClick={this.handleIncrement}>Increment</Button>
-       <Button handleClick={this.handleDeccrement}>Decrement</Button>
+       <p>Counter: {this.props.counter}</p>
+       <button onClick={this.props.incrementCounter}>Increment</button>
+       <button onClick={this.props.decrementCounter}>Decrement</button>
     </div>
     )
   }
 }
 
-export default Counter
+function mapStateToProps({counter}){
+  return { counter: counter.counter}
+}
+
+export default connect(mapStateToProps, { incrementCounter, decrementCounter})(Counter)

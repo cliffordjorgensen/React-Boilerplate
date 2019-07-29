@@ -1,21 +1,9 @@
-import React, { Component } from 'react';
-import Counter from './Counter'
-import Stuff from './Stuff'
+import React from 'react';
 
-class App extends Component {
-  
-  state = {
-
-  }
-  render() {
-    
-    return (
-      <div>
-        <Counter />
-        <Stuff />
-      </div>
-    )
-  }
+export default ({children}) => {
+  return(
+    <div>
+      {children}
+    </div>
+  )
 }
-
-export default App;
